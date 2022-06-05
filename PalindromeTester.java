@@ -6,15 +6,8 @@ public class PalindromeTester {
     public static void main(String[] args) throws InterruptedException {
         Scanner input = new Scanner(System.in);
         System.out.println("This program depicts the number of 3+ digit palindromes there are from 101 to a number.");
-        TimeUnit.SECONDS.sleep(2);
-        System.out.println("Enter a number:");
+        System.out.print("Enter a number: ");
         int x = input.nextInt();
-        System.out.println();
-        System.out.print(". ");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.print(". ");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println(". ");
         System.out.println(Arrays.toString(numToArray(x)));
         System.out.println(numPalindrome(x) + " palindromes detected.");
         input.close();
@@ -22,9 +15,8 @@ public class PalindromeTester {
 
     public static boolean isPalindrome(int num) {
         char[] arr = numToArray(num);
-        boolean isPalindrome = true;
-        char left = 0;
-        char right = 0;
+        char left;
+        char right;
 
         //if the number has an even amount of digits
         int i = 0;
@@ -32,11 +24,10 @@ public class PalindromeTester {
             left = arr[i];
             right = arr[arr.length - 1 - i];
             if(left != right)
-                isPalindrome = false;
+                return false;
             i++;
         }
-
-        return isPalindrome;
+        return true;
     }
 
     public static int numPalindrome(int num) {
